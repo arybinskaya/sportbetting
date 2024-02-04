@@ -8,7 +8,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Matches list={liveEvents} title="Current Mathes" />
+      <Matches list={liveEvents} title="Live matches" />
       <Matches list={futureEvents} title="Future matches" />
     </>
   );

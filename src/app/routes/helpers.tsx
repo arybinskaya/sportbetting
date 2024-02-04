@@ -23,7 +23,7 @@ const routes: Record<RouteName, RouteConfig> = {
   },
 };
 
-export const allRoutes = Object.values(routes);
+export const allRoutes: RouteConfig[] = Object.values(routes);
 
 export function useGotoRoute(
   name: RouteName

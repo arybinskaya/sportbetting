@@ -1,11 +1,12 @@
-import { Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { allRoutes, generateRoutePath } from "./helpers";
 import { RouteConfig, RouteName } from "./interfaces";
+import { Layout } from "../layout";
 
 export function UnauthenticatedRoutes(): JSX.Element {
   return (
     <Routes>
-      <Route element={<Outlet />}>
+      <Route element={<Layout />}>
         {allRoutes.map(({ label, component: Element, path }: RouteConfig) => {
           return <Route key={label} element={<Element />} path={path} />;
         })}

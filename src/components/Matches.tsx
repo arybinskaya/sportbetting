@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-
 import { TEvent } from "../data";
+import { RouteName, generateRoutePath } from "../app/routes";
 
 type TypeProps = {
   title: string;
@@ -8,17 +8,22 @@ type TypeProps = {
 };
 
 export const Matches = ({ title, list }: TypeProps) => {
-  // const goTo = (id: string) =>
-  //   `${generateRoutePath({ name: RouteName.EventDetails })}/${id}`;
+  const goTo = (id: string) =>
+    `${generateRoutePath({
+      name: RouteName.EventDetails,
+      params: { id },
+    })}`;
 
   return (
     <>
       <div className="flex justify-center items-center">
-        <div className="flex flex-col">
-          <div className="text-5xl font-bold mb-6">{title}</div>
+        <div className="md:min-w-[500px] min-w-96 flex flex-col  bg-slate-700 p-5 border-black mb-6 rounded-lg">
+          <div className="text-5xl font-bold mb-6 text-white rounded  ">
+            {title}
+          </div>
           {list.map((event) => (
-            <div className="text-2xl mb-6" key={event.id}>
-              <Link to={"/"}>
+            <div className="text-2xl mb-6 text-white" key={event.id}>
+              <Link to={goTo(event.id)}>
                 {event.homeTeam} - {event.guestTeam}
               </Link>
             </div>
